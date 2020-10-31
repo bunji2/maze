@@ -123,9 +123,11 @@ func (m MazeData) MakeDot(filePath string) (err error) {
 	if err != nil {
 		return
 	}
-	defer w.Close()
+	//defer w.Close()
 
 	m.DumpPaths(w)
+
+	err = w.Close()
 	return
 }
 

@@ -45,7 +45,11 @@ func run() int {
 	// 迷路を表示
 	m.Print(os.Stdout)
 
-	m.MakeDot("maze.dot")
+	err = m.MakeDot("maze.dot")
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		return 3
+	}
 
 	return 0
 }
